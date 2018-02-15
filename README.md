@@ -71,7 +71,7 @@ var app = toureiro({
 });
 ```
 
-## Usage
+## Usage a
 
 You can invoke `toureiro --help` to see usage instructions:
 
