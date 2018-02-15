@@ -14,7 +14,7 @@ var Job = React.createClass({
   promoteJob: function () {
     var _this = this;
     if (confirm('Are you sure you want to promote this job?')) {
-      $.post(window.href + 'job/promote/', {
+      $.post(location.href + 'job/promote/', {
         queue: this.props.queue,
         id: this.props.job.id
       }, function (response) {
@@ -33,7 +33,7 @@ var Job = React.createClass({
   removeJob: function () {
     var _this = this;
     if (confirm('Are you sure you want to remove job ' + this.props.job.id + '? This action is not reversible.')) {
-      $.post(window.href + 'job/remove/', {
+      $.post(location.href + 'job/remove/', {
         queue: this.props.queue,
         id: this.props.job.id
       }, function (response) {
@@ -52,7 +52,7 @@ var Job = React.createClass({
   rerunJob: function () {
     var _this = this;
     if (confirm('Are you sure you want to rerun job ' + this.props.job.id + '? This will create another instance of the job with the same params and will be executed immediately.')) {
-      $.post(window.href + 'job/rerun/', {
+      $.post(location.href + 'job/rerun/', {
         queue: this.props.queue,
         id: this.props.job.id
       }, function (response) {
@@ -167,7 +167,7 @@ var JobDetails = React.createClass({
     var _this = this;
     var id = $(this.refs.idField.getDOMNode()).val()
     if (id) {
-      $.get(window.href + '/job/', {
+      $.get(location.href + '/job/', {
         queue: this.props.queue,
         id: id
       }, function (response) {
@@ -246,7 +246,7 @@ var ToureiroJobs = React.createClass({
     this.setState({
       jobs: []
     }, function () {
-      $.get(window.href + 'job/fetch/' + _this.props.category, {
+      $.get(location.href + 'job/fetch/' + _this.props.category, {
         queue: _this.props.queue,
         page: _this.state.page,
         limit: _this.state.limit

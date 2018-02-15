@@ -27,7 +27,7 @@ ToureiroSidebar = React.createClass({
 
   listQueues: function () {
     var _this = this;
-    $.get(window.href + 'queue/list/', function (response) {
+    $.get(location.href + 'queue/list/', function (response) {
       if (response.status === 'OK') {
         _this.setState({
           queues: response.queues
@@ -43,7 +43,7 @@ ToureiroSidebar = React.createClass({
 
   getQueue: function (queue) {
     var _this = this;
-    $.get(window.href + 'queue/?name=' + encodeURIComponent(queue), function (response) {
+    $.get(location.href + 'queue/?name=' + encodeURIComponent(queue), function (response) {
       if (response.status === 'OK') {
         var state = {
           queue: response.queue,
