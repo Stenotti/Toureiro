@@ -4,6 +4,6 @@ var app = require('./lib/toureiro')({
     db: 1
   }
 });
-var server = app.listen(3000, function() {
-  console.log('Toureiro is now listening at port 3000...');
+var server = app.listen(3010, function () {
+  console.log('Toureiro is now listening at port 3010...');
 });
