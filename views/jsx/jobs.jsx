@@ -247,7 +247,7 @@ var ToureiroJobs = React.createClass({
       jobs: []
     }, function () {
       console.log("location ", location.href)
-      $.get(location.href + 'toureiro_job/fetch/' + _this.props.category, {
+      $.get(location.href + 'toureiro_job/t_fetch/' + _this.props.category, {
         queue: _this.props.queue,
         page: _this.state.page,
         limit: _this.state.limit
