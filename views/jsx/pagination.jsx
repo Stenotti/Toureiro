@@ -3,25 +3,25 @@ var classnames = require('classnames');
 
 var Pagination = React.createClass({
 
-  getInitialState: function() {
+  getInitialState: function () {
     var state = {
       page: 0
     };
     return state;
   },
 
-  changePage: function(page, event) {
+  changePage: function (page, event) {
     var _this = this;
     this.setState({
       page: page
-    }, function() {
+    }, function () {
       if (_this.props.onPageChange) {
         _this.props.onPageChange(page);
       }
     });
   },
 
-  stepPage: function(operand, event) {
+  stepPage: function (operand, event) {
     var page = this.state.page + operand;
     if (page < 0) {
       page = 0;
@@ -34,14 +34,14 @@ var Pagination = React.createClass({
     var _this = this;
     this.setState({
       page: page
-    }, function() {
+    }, function () {
       if (_this.props.onPageChange) {
         _this.props.onPageChange(page);
       }
     });
   },
 
-  render: function() {
+  render: function () {
     var _this = this;
     var pages = [];
     for (var i = 0; i < this.props.total; i++) {
@@ -57,7 +57,7 @@ var Pagination = React.createClass({
             <a href="javascript:;" className="fui-arrow-left" onClick={_this.stepPage.bind(_this, -1)}>«</a>
           </li>
           {
-            pages.map(function(page) {
+            pages.map(function (page) {
               var pageClasses = classnames({
                 active: _this.state.page === page
               });

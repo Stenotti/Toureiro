@@ -10,7 +10,7 @@ var Toureiro = React.createClass({
 
   mixins: [LinkedStateMixin],
 
-  getInitialState: function() {
+  getInitialState: function () {
     var state = {
       queue: undefined,
       category: undefined,
@@ -19,42 +19,42 @@ var Toureiro = React.createClass({
     return state;
   },
 
-  handleQueueChange: function(queue) {
+  handleQueueChange: function (queue) {
     this.setState({
       queue: queue
     });
   },
 
-  handleCategoryChange: function(category) {
+  handleCategoryChange: function (category) {
     var _this = this;
     this.setState({
       category: category
-    }, function() {
+    }, function () {
       if (_this.refs.jobs) {
         _this.refs.jobs.setState({
           page: 0
-        }, function() {
+        }, function () {
           _this.refs.jobs.fetchJobs();
         });
       }
     });
   },
 
-  render: function() {
+  render: function () {
     var _this = this;
     return (
       <div id="toureiro">
         <Sidebar onQueueChange={this.handleQueueChange} onCategoryChange={this.handleCategoryChange} readonlyLink={this.linkState('readonly')} />
         <div id="toureiro-canvas">
-        {
-          (_this.state.queue && _this.state.category) ? (
-            (_this.state.category === 'job') ? (
-              <JobDetails queue={_this.state.queue} readonly={_this.state.readonly} />
-            ) : (
-              <Jobs ref="jobs" queue={_this.state.queue} category={this.state.category} readonly={_this.state.readonly} />
-            )
-          ) : ''
-        }
+          {
+            (_this.state.queue && _this.state.category) ? (
+              (_this.state.category === 'job') ? (
+                <JobDetails queue={_this.state.queue} readonly={_this.state.readonly} />
+              ) : (
+                  <Jobs ref="jobs" queue={_this.state.queue} category={this.state.category} readonly={_this.state.readonly} />
+                )
+            ) : ''
+          }
         </div>
       </div>
     );
